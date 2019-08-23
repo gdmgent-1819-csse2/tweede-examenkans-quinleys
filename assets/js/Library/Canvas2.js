@@ -49,30 +49,16 @@ export default class Canvas2 {
             let subSliderMatrix = document.getElementById('subSliderMatrix');
             if(maxtrixMath === 'rotatieMatrix'){
                 this.data.positions.push(0,0)
-                let vector = new Vector2(0, 0.8)
+                let rotatievector = new Vector2(0, 0.8)
                 let xRangeMatrix = document.getElementById('xRangeMatrix').value;
-                vector.rot(-xRangeMatrix)
-                this.data.positions.push(vector.x, vector.y)
+                rotatievector.rot(-xRangeMatrix)
+                this.data.positions.push(rotatievector.x, rotatievector.y)
                 this.data.colors.push(...this.colors['blue'])
                 this.data.colors.push(...this.colors['blue'])
                 rotatieSilderMatrix.style.display = "block";
                 subSliderMatrix.style.display = "none";
             
-            }else{
-                let xRangeMatrix2 = document.getElementById('xRange2Matrix').value;
-                let yRangeMatrix2 = document.getElementById('yRange2Matrix').value;
-                this.data.positions.push(0,0)
-                let mtx = new Matrix2([0.5, 0.5, 0, 0])
-                let scaleMtx = new Matrix2([xRangeMatrix2.value, 0, 0, yRangeMatrix2])
-                mtx.mul(scaleMtx.elements)
-                console.log(mtx.elements)
-                this.data.positions.push(mtx.elements[0], mtx.elements[1])
-                this.data.colors.push(...this.colors['red'])
-                this.data.colors.push(...this.colors['red'])
-                
-                rotatieSilderMatrix.style.display = "none";
-                subSliderMatrix.style.display = "block";
-                }
+            }
         }
         
         this.drawScene()
