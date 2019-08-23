@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSE2</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+        <div class="container">
+            <h1>Tweede Examenkans CSSE2</h1>
+    <main>
+        <h3>Vectorbewerkingen </h3>
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Selecteer een vectorbewerking </label>
+        <select class="form-control" id="math">
+            <option value="sub">Vector Aftrekken</option>
+            <option value="add">Vectoren optellen</option>
+        </select>
+        </div>
+        <div id="addSlider">
+            <form>
+                    <div class="form-group">
+            <p>Add Vectors</p>
+            <p>Vector1 (red)</p>
+            <label for="formControlRange">X</label>
+            <input type="range" min="-100" max="100" value="0"  class="form-control-range" id="xRange">
+            <label for="formControlRange">Y</label>
+            <input type="range" min="-100" max="100" value="0" class="form-control-range"id="yRange">
+            <p>Vector2 (blue)</p>
+            <label for="formControlRange">X'</label>
+            <input type="range" min="-100" max="100" value="0" class="form-control-range" id="xRange1">
+            <label for="formControlRange">Y'</label>
+            <input type="range" min="-100" max="100" value="0" class="form-control-range" id="yRange1">
+                    </div>
+        </form>
+            <button id="showbtn" class="btn btn-primary">Show Extra Info</button>
+            <button id="hidebtn" class="btn btn-primary">Hide Extra Info</button>
+            <div id="extraInfoAdd">
+            <p>Coordinaten</p>
+            <p id="corAdd"></p>
+            <p id="corAdd2"></p>
+            <p id="equalsAdd"></p>
+            <div id="formule">
+            <p> 𝑐⃗ =  𝑎 + 𝑏</p>
+            <p> 𝑐⃗ = 〈 𝑎𝑥 + 𝑏𝑥 , 𝑎𝑦 + 𝑏𝑦 , 𝑎𝑧 + 𝑏𝑧 〉</p>
+            <p id="formuleFilled"></p>
+            </div>
+          </div>
+        </div>
+          <div id="subSlider">
+                <div class="form-group">
+                <p>Subtract Vectors</p>
+                <p>Vector1 (blue)</p>
+                <label>X:</label>
+                <input type="range" min="-100" max="100" value="0" class="form-control-range" id="xRangeSub">
+                <label>Y:</label>
+                <input type="range" min="-100" max="100" value="0" class="form-control-range" id="yRangeSub">
+                <p>Vector2 (red)</p>
+                <label>X`:</label>
+                <input type="range" min="-100" max="100" value="0" class="form-control-range" id="xRangeSub1">
+                <label>Y`:</label>
+                <input type="range" min="-100" max="100" value="0" class="form-control-range" id="yRangeSub1">
+                </div>
+                <button id="showbtn1" class="btn btn-primary">Show Extra Info</button>
+                <button id="hidebtn1" class="btn btn-primary">Hide Extra Info</button>
+                <div id="extraInfoSub">
+                <p>Coordinaten</p>
+                <p id="corSub"></p>
+                <p id="corSub2"></p>
+                <p id="equalsSub"></p>
+                <div id="formule">
+                <p> 𝑐⃗ =  𝑎 - 𝑏</p>
+                <p> 𝑐⃗ = 〈 𝑎𝑥 - 𝑏𝑥 , 𝑎𝑦 - 𝑏𝑦 , 𝑎𝑧 - 𝑏𝑧 〉</p>
+                <p id="formuleFilled"></p>
+                </div>
+              </div>
+            </div>
+            <br>
+        <button onclick="window.dispatchEvent(new Event('updateCanvas'))" class="btn btn-primary">Update</button>
+        <div id='canvasDiv'></div>
+            <br>
+        <h3>Matrixbewerkingen </h3>
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Selecteer een vectorbewerking </label>
+        <select class="form-control" id="maxtrixMath">
+                <option value="rotatieMatrix">Rotatie Matrix</option>
+                <option value="addMatrix">Matrix optellen</option>
+        </select>
+        </div>
+            <div id="rotatieSilderMatrix">
+                    <p>Rotatie matrix</p>
+                <label>X:</label>
+                <input type="range" min="-180" max="180" value="0" class="slider" id="xRangeMatrix">
+              </div>
+              
+              <div id="subSliderMatrix">
+                    <p>Subtract Vectors</p>
+                    <label>X:</label>
+                    <input type="range" min="0" max="360" value="0" class="slider" id="xRange2Matrix">
+                    <label>Y:</label>
+                    <input type="range" min="-100" max="100" value="0" class="slider" id="yRange2Matrix">
+    
+                    <p>Coordinaten</p>
+                    <p id="corSub"></p>
+                    <p id="corSub2"></p>
+                </div>
+                <button onclick="window.dispatchEvent(new Event('updateCanvas2'))" class="btn btn-primary">Update</button>
+                
+        <div id='canvasDiv2'></div>
+    </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
